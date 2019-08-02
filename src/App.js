@@ -124,6 +124,16 @@ const songs = [
     name: 'Song_of_Mirrors',
     length: '6:13',
   },
+  { 
+    author: 'Author Ice_Cream',
+    name: 'Ice_Cream',
+    length: '2:03',
+  },
+  { 
+    author: 'Author Dawn_of_Man',
+    name: 'Dawn_of_Man',
+    length: '2:06',
+  },
 ];
 
 function App() {
