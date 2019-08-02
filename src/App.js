@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 import Shuffle from '@material-ui/icons/Shuffle';
 import Favorite from '@material-ui/icons/Favorite';
 import PlayArrow from '@material-ui/icons/PlayArrow';
@@ -10,7 +9,9 @@ import SkipPrevious from '@material-ui/icons/SkipPrevious';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 import VolumeOff from '@material-ui/icons/VolumeOff';
 import Hearing from '@material-ui/icons/Hearing';
-import { 
+import classNames from 'classnames';
+import {
+  Button,
   Typography,
   ButtonBase,
   Fab,
@@ -19,8 +20,14 @@ import {
   TableCell,
   TableRow,
   TableBody,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
 } from '@material-ui/core';
-import classNames from 'classnames';
+
 import './App.css';
 
 const useStyles = makeStyles(theme => ({
@@ -130,8 +137,17 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
   const [leftTime, setLeftTime] = useState(0);
   const [completed, setCompleted] = useState(0);
+  const [open, setOpen] = React.useState(true);
   const audioRef = useRef(null);
   const progressRef = useRef(null);
+
+  function handleClickOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
 
   const clickPrevious = () => {
     const newIndex = (songIndex - 1 + songs.length) % songs.length;
@@ -144,6 +160,9 @@ function App() {
     }
     const newIndex = (songIndex + add) % songs.length;
     setSongIndex(newIndex);
+
+    const random = (Math.random()*100).toFixed(0);
+    if (random < 30) handleClickOpen();
   }, [songIndex, isRandom])
 
   const onClickIsPlay = () => {
@@ -321,6 +340,28 @@ function App() {
           </div>
         </div>
       </div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Order Premium service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Premium Service provide you a better experience.
+            Enjoy and have fun with music player.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="secondary">
+            Disagree
+          </Button>
+          <Button onClick={handleClose} color="secondary" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
