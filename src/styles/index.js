@@ -5,5 +5,8 @@ export default createMuiTheme({
     primary: {
       main: '#fafafa',
     },
+    secondary: {
+      main: `rgb(77, 190, 164)`,
+    }
   },
 });

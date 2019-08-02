@@ -12,14 +12,9 @@
   flex: 1;
   width: 90%;
   margin: 64px;
-  background-color: rgb(106, 111,135);
-}
-
-.coverDiv {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -32px;
+  background-color: rgba(106, 111,135, 0.9);
+  position: relative;
+  opacity: 0.9;
 }
 
 @keyframes App-logo-spin {
