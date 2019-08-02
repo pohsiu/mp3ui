@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a300e4ee4133d8429cd2304322a90155",
+    "revision": "a6b6a318409ff3dbe8893cf2434ae2a1",
     "url": "/mp3ui/index.html"
   },
   {
-    "revision": "7797f3363f409aedb143",
+    "revision": "5a84fa6d5397ee8580c8",
     "url": "/mp3ui/static/css/main.7c0fda5d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mp3ui/static/js/2.b093485d.chunk.js"
   },
   {
-    "revision": "7797f3363f409aedb143",
-    "url": "/mp3ui/static/js/main.d21a42ea.chunk.js"
+    "revision": "5a84fa6d5397ee8580c8",
+    "url": "/mp3ui/static/js/main.69368152.chunk.js"
   },
   {
     "revision": "86c652d3cdf492ef5e80",

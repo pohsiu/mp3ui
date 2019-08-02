@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mp3ui/static/css/main.7c0fda5d.chunk.css",
-    "main.js": "/mp3ui/static/js/main.d21a42ea.chunk.js",
-    "main.js.map": "/mp3ui/static/js/main.d21a42ea.chunk.js.map",
+    "main.js": "/mp3ui/static/js/main.69368152.chunk.js",
+    "main.js.map": "/mp3ui/static/js/main.69368152.chunk.js.map",
     "runtime~main.js": "/mp3ui/static/js/runtime~main.e6ef9712.js",
     "runtime~main.js.map": "/mp3ui/static/js/runtime~main.e6ef9712.js.map",
     "static/js/2.b093485d.chunk.js": "/mp3ui/static/js/2.b093485d.chunk.js",
     "static/js/2.b093485d.chunk.js.map": "/mp3ui/static/js/2.b093485d.chunk.js.map",
     "index.html": "/mp3ui/index.html",
-    "precache-manifest.d7116199a01a736e05ac23936302318a.js": "/mp3ui/precache-manifest.d7116199a01a736e05ac23936302318a.js",
+    "precache-manifest.c4ccb05473ae4dff4ae182fef02ca593.js": "/mp3ui/precache-manifest.c4ccb05473ae4dff4ae182fef02ca593.js",
     "service-worker.js": "/mp3ui/service-worker.js",
     "static/css/main.7c0fda5d.chunk.css.map": "/mp3ui/static/css/main.7c0fda5d.chunk.css.map"
   }
