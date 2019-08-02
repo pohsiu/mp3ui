@@ -267,7 +267,7 @@ function App() {
     <div className="App">
       <div className="Body">
         <div className={classes.coverDiv}>
-          <img style={{ width: '100%', height: '100%' }} src={`/cover/${name}.jpg`} alt="albumcover" />
+          <img style={{ width: '100%', height: '100%' }} src={`./cover/${name}.jpg`} alt="albumcover" />
         </div>
         <div className={classes.songList}>
           <Table>
@@ -319,7 +319,7 @@ function App() {
             autoPlay
             ref={audioRef}
             muted={isMute}
-            src={`/music/${name}.mp3`}>
+            src={`./music/${name}.mp3`}>
           </audio>
           <div className={classes.playerBar}>
             <Typography variant="subtitle1" color="primary">
