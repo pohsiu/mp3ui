@@ -155,7 +155,7 @@ function App() {
     setCompleted(percent);
   }
 
-  useEffect((clickNext, isDrag) => {
+  useEffect((isDrag) => {
     progressRef.current.onmousemove = (event) => {
       if (isDrag) moveProgress(event);
     }
