@@ -10,8 +10,16 @@ import SkipPrevious from '@material-ui/icons/SkipPrevious';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 import VolumeOff from '@material-ui/icons/VolumeOff';
 import Hearing from '@material-ui/icons/Hearing';
-import { Fab } from '@material-ui/core';
-import { Typography, ButtonBase, Table, TableHead, TableCell, TableRow } from '@material-ui/core';
+import { 
+  Typography,
+  ButtonBase,
+  Fab,
+  Table,
+  TableHead,
+  TableCell,
+  TableRow,
+  TableBody,
+} from '@material-ui/core';
 import classNames from 'classnames';
 import './App.css';
 
@@ -242,6 +250,7 @@ function App() {
               <TableCell align="right">LENGTH</TableCell>
             </TableRow>
           </TableHead>
+          <TableBody>
           {songs.map((song, index) => {
             return (
               <TableRow key={song.name}>
@@ -260,6 +269,7 @@ function App() {
               </TableRow>
             )
           })}
+          </TableBody>
           </Table>
         </div>
         <div className={classes.playerContainer}>
