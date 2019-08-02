@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pohsiu/mp3ui/static/css/main.7c0fda5d.chunk.css",
+    "main.js": "/pohsiu/mp3ui/static/js/main.60cddc86.chunk.js",
+    "main.js.map": "/pohsiu/mp3ui/static/js/main.60cddc86.chunk.js.map",
+    "runtime~main.js": "/pohsiu/mp3ui/static/js/runtime~main.9161163d.js",
+    "runtime~main.js.map": "/pohsiu/mp3ui/static/js/runtime~main.9161163d.js.map",
+    "static/js/2.b093485d.chunk.js": "/pohsiu/mp3ui/static/js/2.b093485d.chunk.js",
+    "static/js/2.b093485d.chunk.js.map": "/pohsiu/mp3ui/static/js/2.b093485d.chunk.js.map",
+    "index.html": "/pohsiu/mp3ui/index.html",
+    "precache-manifest.c6fcfd31f7981db58216a872d5951e64.js": "/pohsiu/mp3ui/precache-manifest.c6fcfd31f7981db58216a872d5951e64.js",
+    "service-worker.js": "/pohsiu/mp3ui/service-worker.js",
+    "static/css/main.7c0fda5d.chunk.css.map": "/pohsiu/mp3ui/static/css/main.7c0fda5d.chunk.css.map"
+  }
+}
