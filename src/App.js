@@ -9,8 +9,9 @@ import SkipNext from '@material-ui/icons/SkipNext';
 import SkipPrevious from '@material-ui/icons/SkipPrevious';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 import VolumeOff from '@material-ui/icons/VolumeOff';
+import Hearing from '@material-ui/icons/Hearing';
 import { Fab } from '@material-ui/core';
-import { Typography } from '@material-ui/core';
+import { Typography, ButtonBase, Table, TableHead, TableCell, TableRow } from '@material-ui/core';
 import classNames from 'classnames';
 import './App.css';
 
@@ -81,6 +82,14 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: 0,
     top: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+    // background: 'blue',
+  },
+  item: {
+    flex: 1,
+    display: 'flex',
   },
 }));
 
@@ -88,18 +97,22 @@ const songs = [
   { 
     author: 'Author My Way',
     name: 'For_We_Are_Many',
+    length: '3:53',
   },
   { 
     author: 'Author Jazz_Mango',
     name: 'Jazz_Mango',
+    length: '2:12',
   },
   { 
     author: 'Author Song_of_Mirrors',
     name: 'Song_of_Mirrors',
+    length: '6:13',
   },
 ];
 
 function App() {
+  let isDrag = false;
   const classes = useStyles();
   const [songIndex, setSongIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -134,7 +147,24 @@ function App() {
     setIsPlay(!isPlay)
   }
 
-  useEffect(() => {
+  const moveProgress = (event) => {
+    const fullWidth = progressRef.current.clientWidth;
+    const percent = ((event.clientX - 72)/fullWidth*100).toFixed(2);
+    const { duration } = audioRef.current;
+    audioRef.current.currentTime = duration * percent / 100;
+    setCompleted(percent);
+  }
+
+  useEffect((clickNext, isDrag) => {
+    progressRef.current.onmousemove = (event) => {
+      if (isDrag) moveProgress(event);
+    }
+    progressRef.current.onmousedown = (event) => {
+      isDrag = true;
+    }
+    progressRef.current.onmouseup = (event) => {
+      isDrag = false;
+    }
     if (audioRef.current) {
       audioRef.current.onplay = () => {
         setIsPlay(true);
@@ -193,7 +223,7 @@ function App() {
         setIsPlay(false);
       }
     }
-  }, [clickNext])
+  }, [clickNext, isDrag])
   
   const { name, author } = songs[songIndex];
   return (
@@ -203,7 +233,34 @@ function App() {
           <img style={{ width: '100%', height: '100%' }} src={`/cover/${name}.jpg`} alt="albumcover" />
         </div>
         <div className={classes.songList}>
-
+          <Table>
+            <TableHead>
+            <TableRow>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell align="center">Title</TableCell>
+              <TableCell align="right">LENGTH</TableCell>
+            </TableRow>
+          </TableHead>
+          {songs.map((song, index) => {
+            return (
+              <TableRow key={song.name}>
+                <TableCell component="th" scope="row">{index + 1}</TableCell>
+                <TableCell component="th">
+                  {songIndex === index && <Hearing color="primary" fontSize="small" />}
+                </TableCell>
+                <TableCell component="th" scope="column">
+                  <ButtonBase onClick={() => setSongIndex(index)}>
+                    <Typography variant="subtitle1" color="primary">
+                      {song.name}
+                    </Typography>
+                  </ButtonBase>
+                </TableCell>
+                <TableCell align="right">{song.length}</TableCell>
+              </TableRow>
+            )
+          })}
+          </Table>
         </div>
         <div className={classes.playerContainer}>
           <div className={classes.topTools}>
@@ -249,13 +306,7 @@ function App() {
           </div>
         </div>
         <div className={classes.root}>
-          <div className={classes.progressBar} ref={progressRef} onClick={(event) => {
-            const fullWidth = progressRef.current.clientWidth;
-            const percent = ((event.clientX - 72)/fullWidth*100).toFixed(2);
-            const { duration } = audioRef.current;
-            audioRef.current.currentTime = duration * percent / 100;
-            setCompleted(percent);
-          }}>
+          <div className={classes.progressBar} ref={progressRef} onClick={moveProgress}>
             <div className={classes.progressNow} style={{ width: `${completed}%` }}/>
           </div>
         </div>
